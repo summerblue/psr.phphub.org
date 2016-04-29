@@ -1,0 +1,394 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <title>PHP 标准规范中文版</title>
+
+    <meta name="description" content="PSR 是 PHP Standard Recommendations 的简写，由 PHP FIG 组织制定的 PHP 规范，是 PHP 开发的实践标准。">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <!-- Place favicon.ico in the root directory -->
+
+    <link rel="stylesheet" href="/css/all.css?1">
+</head>
+<body>
+
+<header class="site_header">
+    <div class="center">
+        <a class="site_logo" href="/">
+            <span class="site_logo__short_name">PHP-FIG</span>
+            <span class="site_logo__long_name">The PHP Framework Interop Group</span>
+        </a>
+        <nav class="site_menu">
+            <label class="site_menu__dropdown_button" for="site_menu__dropdown_checkbox">Menu</label>
+            <input class="site_menu__dropdown_checkbox" id="site_menu__dropdown_checkbox" type="checkbox">
+            <ul class="site_menu__list">
+                <li class="site_menu__item">
+                    <a class="site_menu__link site_menu__link--active" href="/">所有 PSR 标准</a>
+                </li>
+                <li class="site_menu__item">
+                    <a class="site_menu__link " href="https://phphub.org/">PHPHub 社区</a>
+                </li>
+                <li class="site_menu__item">
+                    <a class="site_menu__link " href="http://laravel-china.org/">Laravel 文档</a>
+                </li>
+                <li class="site_menu__item">
+                    <a class="site_menu__link " href="http://laravel-china.github.io/php-the-right-way/">PHP 之道</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<div class="page_content">
+
+        <div class="page_banner">
+            <div class="center">
+                <h1 class="page_banner__title">PHP 标准规范</h1>
+            </div>
+        </div>
+
+        <div class="center">
+            <div class="page_content__padding">
+
+
+<div class="markdown">
+    <h1 id="toc_0">PHP Standard Recommendations</h1>
+
+<p>
+  PSR 是 PHP Standard Recommendations 的简写，由 <a target=_blank href="https://github.com/php-fig">PHP FIG</a> 组织制定的 PHP 规范，是 PHP 开发的实践标准。
+</p>
+
+<p>
+  <a target=_blank href="https://github.com/php-fig">PHP FIG</a>，FIG 是 Framework Interoperability Group（框架可互用性小组）的缩写，由几位开源框架的开发者成立于 2009 年，从那开始也选取了很多其他成员进来（包括但不限于  <a target=_blank href="http://laravel.com/">Laravel</a>, <a target=_blank href="https://www.joomla.org/">Joomla</a>, <a target=_blank href="https://www.drupal.org/">Drupal</a>, <a target=_blank href="https://getcomposer.org/">Composer</a>, <a target=_blank href="https://phalconphp.com/en/">Phalcon</a>, <a target=_blank href="http://www.slimframework.com/">Slim</a>, <a target=_blank href="http://symfony.com/">Symfony</a>, <a target=_blank href="http://framework.zend.com/">Zend Framework</a> 等），虽然不是「官方」组织，但也代表了大部分的 PHP 社区。
+</p>
+
+<p>
+  项目的目的在于：通过框架作者或者框架的代表之间讨论，以最低程度的限制，制定一个协作标准，各个框架遵循统一的编码规范，避免各家自行发展的风格阻碍了 PHP 的发展，解决这个程序设计师由来已久的困扰。
+</p>
+
+<p>
+	目前已表决通过了 6 套标准，已经得到大部分 PHP 框架的支持和认可。
+</p>
+
+<p>
+	本项目的主要面向对象是所有参与的各个成员（也就是各自框架的社区），这里是完整的 <a target=_blank href="http://www.php-fig.org/members/">成员列表</a>，当然，同时也欢迎其它 PHP 社区采用本规范。
+</p>
+
+<p>
+	此中文翻译由 <a target=_blank href="https://github.com/summerblue">@Summer</a> 维护，主要针对「已通过」的 PSR 进行翻译，排版遵照 <a target=_blank href="https://github.com/sparanoid/chinese-copywriting-guidelines">中文文案排版指北</a>，更多讨论请前往 <a target=_blank href="https://phphub.org">PHPHub</a>。
+</p>
+
+<h2 id="toc_1">按表决情况索引</h2>
+
+<h3 id="toc_2">已通过</h3>
+
+<table><thead>
+<tr>
+<th align="center">序号</th>
+<th>标题</th>
+<th>撰稿者</th>
+<th>协调者</th>
+<th>发起人</th>
+</tr>
+</thead><tbody>
+<tr>
+<td align="center">1</td>
+<td><a href="https://phphub.org/topics/2078">基础编码规范</a></td>
+<td>Paul M. Jones</td>
+<td><em>N/A</em></td>
+<td><em>N/A</em></td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td><a href="https://phphub.org/topics/2079">编码风格规范</a></td>
+<td>Paul M. Jones</td>
+<td><em>N/A</em></td>
+<td><em>N/A</em></td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td><a href="https://phphub.org/topics/2080">日志接口规范</a></td>
+<td>Jordi Boggiano</td>
+<td><em>N/A</em></td>
+<td><em>N/A</em></td>
+</tr>
+<tr>
+<td align="center">4</td>
+<td><a href="https://phphub.org/topics/2081">自动加载规范</a></td>
+<td>Paul M. Jones</td>
+<td>Phil Sturgeon</td>
+<td>Larry Garfield</td>
+</tr>
+<tr>
+<td align="center">6</td>
+<td><a href="https://phphub.org/topics/2082">缓存接口规范</a></td>
+<td>Larry Garfield</td>
+<td>Paul Dragoonis</td>
+<td>Robert Hafner</td>
+</tr>
+<tr>
+<td align="center">7</td>
+<td><a href="">HTTP 消息接口规范</a></td>
+<td>Matthew Weier O&#39;Phinney</td>
+<td>Beau Simensen</td>
+<td>Paul M. Jones</td>
+</tr>
+</tbody></table>
+
+<h3 id="toc_3">审查中</h3>
+
+<table><thead>
+<tr>
+<th align="center">序号</th>
+<th>标题</th>
+<th>撰稿者</th>
+<th>协调者</th>
+<th>发起人</th>
+</tr>
+</thead><tbody>
+</tbody></table>
+
+<h3 id="toc_4">起草中</h3>
+
+<table><thead>
+<tr>
+<th align="center">序号</th>
+<th>标题</th>
+<th>撰稿者</th>
+<th>协调者</th>
+<th>发起人</th>
+</tr>
+</thead><tbody>
+<tr>
+<td align="center">5</td>
+<td><a href="https://github.com/phpDocumentor/fig-standards/tree/master/proposed">PHPDoc 标准</a></td>
+<td>Mike van Riel</td>
+<td>Vacant</td>
+<td>Vacant</td>
+</tr>
+<tr>
+<td align="center">8</td>
+<td><a href="https://github.com/php-fig/fig-standards/blob/master/proposed/psr-8-hug/psr-8-hug.md">Huggable 接口</a></td>
+<td>Larry Garfield</td>
+<td>Vacant</td>
+<td>Paul M. Jones</td>
+</tr>
+<tr>
+<td align="center">9</td>
+<td><a href="https://github.com/php-fig/fig-standards/blob/master/proposed/security-disclosure-publication.md">项目安全问题公示</a></td>
+<td>Lukas Kahwe Smith</td>
+<td>Korvin Szanto</td>
+<td>Larry Garfield</td>
+</tr>
+<tr>
+<td align="center">10</td>
+<td><a href="https://github.com/php-fig/fig-standards/blob/master/proposed/security-reporting-process.md">项目安全上报方法</a></td>
+<td>Lukas Kahwe Smith</td>
+<td>Larry Garfield</td>
+<td>Korvin Szanto</td>
+</tr>
+<tr>
+<td align="center">11</td>
+<td><a href="https://github.com/container-interop/fig-standards/blob/master/proposed/container.md">服务容器接口</a></td>
+<td>Matthieu Napoli, David Négrier</td>
+<td>Paul M. Jones</td>
+<td>Vacant</td>
+</tr>
+<tr>
+<td align="center">12</td>
+<td><a href="https://github.com/php-fig/fig-standards/blob/master/proposed/extended-coding-style-guide.md">全量编码风格规范</a></td>
+<td>Korvin Szanto</td>
+<td>Alexander Makarov</td>
+<td>Robert Deutz</td>
+</tr>
+<tr>
+<td align="center">13</td>
+<td><a href="https://github.com/php-fig/fig-standards/blob/master/proposed/links.md">超媒体链接</a></td>
+<td>Larry Garfield</td>
+<td>Matthew Weier O&#39;Phinney</td>
+<td>Evert Pot</td>
+</tr>
+</tbody></table>
+
+<h3 id="toc_5">已废弃</h3>
+
+<table><thead>
+<tr>
+<th align="center">序号</th>
+<th>标题</th>
+<th>撰稿者</th>
+<th>协调者</th>
+<th>发起人</th>
+</tr>
+</thead><tbody>
+<tr>
+<td align="center">0</td>
+<td><a href="/psr/psr-0/">自动加载规范</a></td>
+<td>Matthew Weier O&#39;Phinney</td>
+<td><em>N/A</em></td>
+<td><em>N/A</em></td>
+</tr>
+</tbody></table>
+
+<h2 id="toc_6">按照数字索引</h2>
+
+<table><thead>
+<tr>
+<th>状态</th>
+<th align="center">序号</th>
+<th>标题</th>
+<th>撰稿者</th>
+<th>协调者</th>
+<th>发起人</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>X</td>
+<td align="center">0</td>
+<td><a href="/psr/psr-0/">自动加载规范</a></td>
+<td>Matthew Weier O&#39;Phinney</td>
+<td><em>N/A</em></td>
+<td><em>N/A</em></td>
+</tr>
+<tr>
+<td>A</td>
+<td align="center">1</td>
+<td><a href="https://phphub.org/topics/2078">基础编码规范</a></td>
+<td>Paul M. Jones</td>
+<td><em>N/A</em></td>
+<td><em>N/A</em></td>
+</tr>
+<tr>
+<td>A</td>
+<td align="center">2</td>
+<td><a href="https://phphub.org/topics/2079">编码风格规范</a></td>
+<td>Paul M. Jones</td>
+<td><em>N/A</em></td>
+<td><em>N/A</em></td>
+</tr>
+<tr>
+<td>A</td>
+<td align="center">3</td>
+<td><a href="https://phphub.org/topics/2080">日志接口规范</a></td>
+<td>Jordi Boggiano</td>
+<td><em>N/A</em></td>
+<td><em>N/A</em></td>
+</tr>
+<tr>
+<td>A</td>
+<td align="center">4</td>
+<td><a href="https://phphub.org/topics/2081">自动加载规范</a></td>
+<td>Paul M. Jones</td>
+<td>Phil Sturgeon</td>
+<td>Larry Garfield</td>
+</tr>
+<tr>
+<td>D</td>
+<td align="center">5</td>
+<td><a href="https://github.com/phpDocumentor/fig-standards/tree/master/proposed">PHPDoc 标准</a></td>
+<td>Mike van Riel</td>
+<td>Vacant</td>
+<td>Vacant</td>
+</tr>
+<tr>
+<td>A</td>
+<td align="center">6</td>
+<td><a href="https://phphub.org/topics/2082">缓存接口规范</a></td>
+<td>Larry Garfield</td>
+<td>Paul Dragoonis</td>
+<td>Robert Hafner</td>
+</tr>
+<tr>
+<td>A</td>
+<td align="center">7</td>
+<td><a href="/psr/psr-7/">HTTP 消息接口规范</a></td>
+<td>Matthew Weier O&#39;Phinney</td>
+<td>Beau Simensen</td>
+<td>Paul M. Jones</td>
+</tr>
+<tr>
+<td>D</td>
+<td align="center">8</td>
+<td><a href="https://github.com/php-fig/fig-standards/blob/master/proposed/psr-8-hug/psr-8-hug.md">Huggable 接口</a></td>
+<td>Larry Garfield</td>
+<td>Vacant</td>
+<td>Paul M. Jones</td>
+</tr>
+<tr>
+<td>D</td>
+<td align="center">9</td>
+<td><a href="https://github.com/php-fig/fig-standards/blob/master/proposed/security-disclosure-publication.md">项目安全问题公示</a></td>
+<td>Lukas Kahwe Smith</td>
+<td>Korvin Szanto</td>
+<td>Larry Garfield</td>
+</tr>
+<tr>
+<td>D</td>
+<td align="center">10</td>
+<td><a href="https://github.com/php-fig/fig-standards/blob/master/proposed/security-reporting-process.md">项目安全上报方法</a></td>
+<td>Lukas Kahwe Smith</td>
+<td>Larry Garfield</td>
+<td>Korvin Szanto</td>
+</tr>
+<tr>
+<td>D</td>
+<td align="center">11</td>
+<td><a href="https://github.com/container-interop/fig-standards/blob/master/proposed/container.md">服务容器接口</a></td>
+<td>Matthieu Napoli, David Négrier</td>
+<td>Paul M. Jones</td>
+<td>Vacant</td>
+</tr>
+<tr>
+<td>D</td>
+<td align="center">12</td>
+<td><a href="https://github.com/php-fig/fig-standards/blob/master/proposed/extended-coding-style-guide.md">全量编码风格规范</a></td>
+<td>Korvin Szanto</td>
+<td>Alexander Makarov</td>
+<td>Robert Deutz</td>
+</tr>
+<tr>
+<td>D</td>
+<td align="center">13</td>
+<td><a href="https://github.com/php-fig/fig-standards/blob/master/proposed/links.md">超媒体链接</a></td>
+<td>Larry Garfield</td>
+<td>Matthew Weier O&#39;Phinney</td>
+<td>Evert Pot</td>
+</tr>
+</tbody></table>
+
+<p class="hint"><strong>说明:</strong> A (Accepted) = 已通过 | D (Draft) = 起草中 | R (Review) = 审查中 | X (Deprecated) = 已废弃 </p>
+
+</div>
+            </div>
+        </div>
+
+</div>
+
+<a href="https://github.com/you"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://camo.githubusercontent.com/c6625ac1f3ee0a12250227cf83ce904423abf351/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f6c6566745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_left_gray_6d6d6d.png"></a>
+
+<footer class="site_footer">
+    <div class="center">
+        <span class="site_footer__section">&copy; 2016 <a class="site_footer__link" href="https://github.com/php-fig">PHP Framework Interop Group</a>.</span> <span class="site_footer__section">Site design by <a class="site_footer__link" href="https://twitter.com/reinink" target="_blank">Jonathan Reinink</a>.</span> <br>
+				<br>
+				<img title=":sparkles:" alt=":sparkles:" class="emoji" src="https://dn-phphub.qbox.me/assets/images/emoji/heart.png" align="absmiddle"></img> <a class="site_footer__link" href="http://estgroupe.com" target="_blank">The EST Group</a> <img title=":sparkles:" alt=":sparkles:" class="emoji" src="https://dn-phphub.qbox.me/assets/images/emoji/sparkles.png" align="absmiddle"></img>
+    </div>
+</footer>
+
+<script src="/js/jquery.min.js"></script>
+<script src="/js/main.js"></script>
+
+<script type="text/javascript">
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'gaTrackingID', 'auto');
+        ga('send', 'pageview');
+</script>
+
+</html>
