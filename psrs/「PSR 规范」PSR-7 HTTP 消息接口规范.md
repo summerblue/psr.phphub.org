@@ -78,7 +78,7 @@ Content-Type: text/plain
 
 HTTP 消息包含大小写不敏感头信息。使用 `MessageInterface` 接口来设置和获取头信息，大小写
 不敏感的定义在于，如果你设置了一个 `Foo` 的头信息，`foo` 的值会被重写，你也可以通过 `foo` 来
-拿到 `FoO` 头对应的值。
+拿到 `Foo` 头对应的值。
 
 ```php
 $message = $message->withHeader('foo', 'bar');
