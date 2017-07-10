@@ -1417,23 +1417,18 @@ interface UriInterface
     /**
      * 从 URI 信息中获取路径。
      *
-     *  The path can either be empty or absolute (starting with a slash) or
-     * rootless (not starting with a slash). Implementations MUST support all
-     * three syntaxes.
+     * 路径可以是空的或者是绝对路径（以斜线开始）或者相对路径（不以斜线开始）。
+     * 实现 **必须** 支持所有三种语法。
      *
-     * Normally, the empty path "" and absolute path "/" are considered equal as
-     * defined in RFC 7230 Section 2.7.3. But this method MUST NOT automatically
-     * do this normalization because in contexts with a trimmed base path, e.g.
-     * the front controller, this difference becomes significant. It's the task
-     * of the user to handle both "" and "/".
+     * 通常情况下，空路径 "" 和绝对路径 "/" 被认为是相等的，定义在 RFC 7230 规范 2.7.3 章节。
+     * 但是这个方法 **一定不可** 自动执行这个规范化，因为在调整过的基本路径中，
+     * 例如在前台的控制器中，这种差异变得明显。用户需要处理 "" 和 "/" 两种情况。
      *
-     * The value returned MUST be percent-encoded, but MUST NOT double-encode
-     * any characters. To determine what characters to encode, please refer to
-     * RFC 3986, Sections 2 and 3.3.
+     * 返回值 **必须** 是百分比编码，但是 **一定不可** 双重编码。
+     * 确认需要编码的字符， 请参阅 RFC 3986 规范 2 和 3.3 章节。
      *
-     * As an example, if the value should include a slash ("/") not intended as
-     * delimiter between path segments, that value MUST be passed in encoded
-     * form (e.g., "%2F") to the instance.
+     * 举例，如果值中包含了一个斜线 ("/") 不做为路径之间的分隔符，
+     * 该值 **必须** 使用编码形式传递 (e.g., "%2F") 到实例。
      *
      * @see https://tools.ietf.org/html/rfc3986#section-2
      * @see https://tools.ietf.org/html/rfc3986#section-3.3
