@@ -1447,8 +1447,7 @@ interface UriInterface
      * 确认需要编码的字符， 请参阅 RFC 3986 规范 2 和 3.5 章节。
      *
      * 举例，如果参数中键/值对中的值中包含一个符号 ("&") 不做为值之间的分隔符，
-     * 该值 **必须** 使用编码形式传递 (e.g., "
-     * %26") 到实例。
+     * 该值 **必须** 使用编码形式传递 (e.g., "%26") 到实例。
      *
      * @see https://tools.ietf.org/html/rfc3986#section-2
      * @see https://tools.ietf.org/html/rfc3986#section-3.4
@@ -1473,148 +1472,129 @@ interface UriInterface
     public function getFragment();
 
     /**
-     * Return an instance with the specified scheme.
+     * 返回一个指定协议的实例。
      *
-     * This method MUST retain the state of the current instance, and return
-     * an instance that contains the specified scheme.
+     * 这个方法 **必须** 保留当前实例的状态，并返回一个包含指定协议的实例。
      *
-     * Implementations MUST support the schemes "http" and "https" case
-     * insensitively, and MAY accommodate other schemes if required.
+     * 实现 **必须** 支持大小写不敏感的 "http" 和 "https" 协议，
+     * 如果需要也可以支持其他协议。
      *
-     * An empty scheme is equivalent to removing the scheme.
+     * 一个空的协议的值相当于移除协议。
      *
-     * @param string $scheme The scheme to use with the new instance.
-     * @return self A new instance with the specified scheme.
-     * @throws \InvalidArgumentException for invalid schemes.
-     * @throws \InvalidArgumentException for unsupported schemes.
+     * @param string $scheme 协议
+     * @return self 一个指定协议的新的实例。
+     * @throws \InvalidArgumentException 无效的协议抛出异常。
+     * @throws \InvalidArgumentException 不支持的协议抛出异常。
      */
     public function withScheme($scheme);
 
     /**
-     * Return an instance with the specified user information.
+     * 返回一个指定用户信息的实例。
      *
-     * This method MUST retain the state of the current instance, and return
-     * an instance that contains the specified user information.
+     * 这个方法 **必须** 保留当前实例的状态，并返回一个包含指定用户信息的实例。
      *
-     * Password is optional, but the user information MUST include the
-     * user; an empty string for the user is equivalent to removing user
-     * information.
+     * 密码是可选的，但是用户信息中 **必须** 包含用户，用户的空字符串等于移除用户信息。
      *
-     * @param string $user The user name to use for authority.
-     * @param null|string $password The password associated with $user.
-     * @return self A new instance with the specified user information.
+     * @param string $user 用户名。
+     * @param null|string $password 用户的密码。
+     * @return self 一个指定用户信息的新的实例。
      */
     public function withUserInfo($user, $password = null);
 
     /**
-     * Return an instance with the specified host.
+     * 返回一个指定主机的实例。
      *
-     * This method MUST retain the state of the current instance, and return
-     * an instance that contains the specified host.
+     * 这个方法 **必须** 保留当前实例的状态，并返回一个包含指定主机的实例。
      *
-     * An empty host value is equivalent to removing the host.
+     * 一个空的主机的值相当于移除主机。
      *
-     * @param string $host The hostname to use with the new instance.
-     * @return self A new instance with the specified host.
-     * @throws \InvalidArgumentException for invalid hostnames.
+     * @param string $host 主机。
+     * @return self 一个指定主机的新的实例。
+     * @throws \InvalidArgumentException 无效的主机抛出异常。
      */
     public function withHost($host);
 
     /**
-     * Return an instance with the specified port.
+     * 返回一个指定端口的实例。
      *
-     * This method MUST retain the state of the current instance, and return
-     * an instance that contains the specified port.
+     * 这个方法 **必须** 保留当前实例的状态，并返回一个包含指定端口的实例。
      *
-     * Implementations MUST raise an exception for ports outside the
-     * established TCP and UDP port ranges.
+     * 实现 **必须** 在已经建立的 TCP 和 UDP 端口外的端口引发一个异常。
      *
-     * A null value provided for the port is equivalent to removing the port
-     * information.
+     * 一个空的端口的值相当于移除端口信息。
      *
-     * @param null|int $port The port to use with the new instance; a null value
-     *     removes the port information.
-     * @return self A new instance with the specified port.
-     * @throws \InvalidArgumentException for invalid ports.
+     * @param null|int $port 端口， null 则移除端口信息。
+     * @return self 一个指定端口的新的实例。
+     * @throws \InvalidArgumentException 无效的端口抛出异常。
      */
     public function withPort($port);
 
     /**
-     * Return an instance with the specified path.
+     * 返回一个指定路径的实例。
      *
-     * This method MUST retain the state of the current instance, and return
-     * an instance that contains the specified path.
+     * 这个方法 **必须** 保留当前实例的状态，并返回一个包含指定路径的实例。
      *
-     * The path can either be empty or absolute (starting with a slash) or
-     * rootless (not starting with a slash). Implementations MUST support all
-     * three syntaxes.
+     * 路径可以是空或者绝对路径（以斜线开始）或者相对路径（不以斜线开始）。
+     * 实现 **必须** 支持所有三种语法。
      *
-     * If an HTTP path is intended to be host-relative rather than path-relative
-     * then it must begin with a slash ("/"). HTTP paths not starting with a slash
-     * are assumed to be relative to some base path known to the application or
-     * consumer.
+     * 如果一个 HTTP 路径是绝对路径而不是相对路径，那么必须以斜线 ("/") 开头。
+     * 不以斜线开头的 HTTP 路径是相对应用程序或者是用户已知的某些基本路径。
      *
-     * Users can provide both encoded and decoded path characters.
-     * Implementations ensure the correct encoding as outlined in getPath().
+     * 用户可以使用编码和解码的路径字符。
+     * 确保实现 getPath() 方法概述中的正确编码。
      *
-     * @param string $path The path to use with the new instance.
-     * @return self A new instance with the specified path.
-     * @throws \InvalidArgumentException for invalid paths.
+     * @param string $path 路径。
+     * @return self 一个指定路径的新的实例。
+     * @throws \InvalidArgumentException 无效的路径抛出异常。
      */
     public function withPath($path);
 
     /**
-     * Return an instance with the specified query string.
+     * 返回一个指定 URI 参数的实例。
      *
-     * This method MUST retain the state of the current instance, and return
-     * an instance that contains the specified query string.
+     * 这个方法 **必须** 保留当前实例的状态，并返回一个包含指定参数的实例。
      *
-     * Users can provide both encoded and decoded query characters.
-     * Implementations ensure the correct encoding as outlined in getQuery().
+     * 用户可以使用编码和解码的 URI 参数字符。
+     * 确保实现 getQuery() 方法概述中的正确编码。
      *
-     * An empty query string value is equivalent to removing the query string.
+     * 一个空的 URI 参数的值相当于移除 URI 参数。
      *
-     * @param string $query The query string to use with the new instance.
-     * @return self A new instance with the specified query string.
-     * @throws \InvalidArgumentException for invalid query strings.
+     * @param string $query URI 参数。
+     * @return self 一个指定 URI 参数的新的实例。
+     * @throws \InvalidArgumentException 无效的 URI 参数抛出异常。
      */
     public function withQuery($query);
 
     /**
-     * Return an instance with the specified URI fragment.
+     * 返回一个指定锚点的实例。
      *
-     * This method MUST retain the state of the current instance, and return
-     * an instance that contains the specified URI fragment.
+     * 这个方法 **必须** 保留当前实例的状态，并返回一个包含指定锚点的实例。
      *
-     * Users can provide both encoded and decoded fragment characters.
-     * Implementations ensure the correct encoding as outlined in getFragment().
+     * 用户可以使用编码和解码的锚点字符。
+     * 确保实现 getFragment() 方法概述中的正确编码。
      *
-     * An empty fragment value is equivalent to removing the fragment.
+     * 一个空的锚点的值相当于移除锚点。
      *
-     * @param string $fragment The fragment to use with the new instance.
-     * @return self A new instance with the specified fragment.
+     * @param string $fragment 锚点的值。
+     * @return self 一个指定锚点的新的实例。
      */
     public function withFragment($fragment);
 
     /**
-     * Return the string representation as a URI reference.
+     * 返回 URI 引用字符串的表示形式。
      *
-     * Depending on which components of the URI are present, the resulting
-     * string is either a full URI or relative reference according to RFC 3986,
-     * Section 4.1. The method concatenates the various components of the URI,
-     * using the appropriate delimiters:
+     * 取决于 URI 中存在哪些组件，根据 RFC 3986 规范 4.1 章节生成的字符串是
+     * 完整的 URI 或相对引用，方法中拼接了 URI 中的各个组件，使用适当的分隔符：
      *
-     * - If a scheme is present, it MUST be suffixed by ":".
-     * - If an authority is present, it MUST be prefixed by "//".
-     * - The path can be concatenated without delimiters. But there are two
-     *   cases where the path has to be adjusted to make the URI reference
-     *   valid as PHP does not allow to throw an exception in __toString():
-     *     - If the path is rootless and an authority is present, the path MUST
-     *       be prefixed by "/".
-     *     - If the path is starting with more than one "/" and no authority is
-     *       present, the starting slashes MUST be reduced to one.
-     * - If a query is present, it MUST be prefixed by "?".
-     * - If a fragment is present, it MUST be prefixed by "#".
+     * - 如果存在一个协议，它的后缀 **必须** 是 ":"。
+     * - 如果存在一个授权，它的前缀 **必须** 是 "//"。
+     * - 没有分隔符的路径可以拼接。 但是两种情况
+     *   路径必须调整，以使用有效的 URI 引用不允许 PHP 抛出异常，在 __toString 中：
+     *     - 如果路径是没有根的并且存在授权，则路径 **必须** 以 "/" 为前缀。
+     *     - 如果路径是以多个 "/" 开始的并且不存在授权，则 **必须** 将起始的斜线
+     *       的数量减少为一个。
+     * - 如果存在一个 URI 参数，它的前缀 **必须** 是 "?"。
+     * - 如果存在一个锚点，它的前缀 **必须** 是 "#"。
      *
      * @see http://tools.ietf.org/html/rfc3986#section-4.1
      * @return string
