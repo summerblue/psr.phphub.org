@@ -1094,19 +1094,14 @@ interface ServerRequestInterface extends RequestInterface
 namespace Psr\Http\Message;
 
 /**
- * Representation of an outgoing, server-side response.
+ * 表示对外发送的服务器端的响应。
  *
- * Per the HTTP specification, this interface includes properties for
- * each of the following:
+ * 根据 HTTP 规范，此接口包含以下属性：
  *
- * - Protocol version
- * - Status code and reason phrase
- * - Headers
- * - Message body
- *
- * Responses are considered immutable; all methods that might change state MUST
- * be implemented such that they retain the internal state of the current
- * message and return an instance that contains the changed state.
+ * - 协议版本
+ * - 状态码以及原因
+ * - 头信息
+ * - 消息体
  * 
  * HTTP 响应是被视为无法修改的，所有能修改状态的方法，都 **必须** 有一套机制，在内部保
  * 持好原有的内容，然后把修改状态后的，新的 HTTP 响应实例返回。
@@ -1114,21 +1109,19 @@ namespace Psr\Http\Message;
 interface ResponseInterface extends MessageInterface
 {
     /**
-     * Gets the response status code.
+     * 获取响应的状态码。
      *
-     * The status code is a 3-digit integer result code of the server's attempt
-     * to understand and satisfy the request.
+     * 状态码为一个三位数的整数，服务器端尝试处理并满足请求的结果代码。
      *
-     * @return int Status code.
+     * @return int 状态码。
      */
     public function getStatusCode();
 
     /**
-     * Return an instance with the specified status code and, optionally, reason phrase.
+     * 返回一个具有指定状态码并且可选原因的实例。
      *
-     * If no reason phrase is specified, implementations MAY choose to default
-     * to the RFC 7231 or IANA recommended reason phrase for the response's
-     * status code.
+     * 如果没有指定原因，实现 **可以** 选择 RFC 7231 规范或 IANA 推荐的原因
+     * 做为指定响应状态码的原因。
      *
      * 此方法在实现的时候，**必须** 保留原有的不可修改的 HTTP 消息实例，然后返回
      * 一个新的修改过的 HTTP 消息实例。
@@ -1140,7 +1133,7 @@ interface ResponseInterface extends MessageInterface
      *     provided status code; if none is provided, implementations MAY
      *     use the defaults as suggested in the HTTP specification.
      * @return self
-     * @throws \InvalidArgumentException For invalid status code arguments.
+     * @throws \InvalidArgumentException 无效状态码抛出异常。
      */
     public function withStatus($code, $reasonPhrase = '');
 
@@ -1451,7 +1444,7 @@ interface UriInterface
      *
      * @see https://tools.ietf.org/html/rfc3986#section-2
      * @see https://tools.ietf.org/html/rfc3986#section-3.4
-     * @return string 从 URI 信息中的参数。
+     * @return string 从 URI 信息中获取的参数。
      */
     public function getQuery();
 
@@ -1541,7 +1534,7 @@ interface UriInterface
      * 不以斜线开头的 HTTP 路径是相对应用程序或者是用户已知的某些基本路径。
      *
      * 用户可以使用编码和解码的路径字符。
-     * 确保实现 getPath() 方法概述中的正确编码。
+     * 确保实现 `getPath()` 方法概述中的正确编码。
      *
      * @param string $path 路径。
      * @return self 一个指定路径的新的实例。
@@ -1555,7 +1548,7 @@ interface UriInterface
      * 这个方法 **必须** 保留当前实例的状态，并返回一个包含指定参数的实例。
      *
      * 用户可以使用编码和解码的 URI 参数字符。
-     * 确保实现 getQuery() 方法概述中的正确编码。
+     * 确保实现 `getQuery()` 方法概述中的正确编码。
      *
      * 一个空的 URI 参数的值相当于移除 URI 参数。
      *
@@ -1571,7 +1564,7 @@ interface UriInterface
      * 这个方法 **必须** 保留当前实例的状态，并返回一个包含指定锚点的实例。
      *
      * 用户可以使用编码和解码的锚点字符。
-     * 确保实现 getFragment() 方法概述中的正确编码。
+     * 确保实现 `getFragment()` 方法概述中的正确编码。
      *
      * 一个空的锚点的值相当于移除锚点。
      *
