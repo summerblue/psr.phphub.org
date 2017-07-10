@@ -1350,7 +1350,7 @@ interface UriInterface
      *
      * 返回的数据 **必须** 是小写字母，遵照  RFC 3986 规范 3.1 章节。
      *
-     * 最后部分的 ":" 字串不属于 Scheme，**一定不可** 作为返回数据的一部分。
+     * 最后部分的 ":" 字符不属于 Scheme，**一定不可** 作为返回数据的一部分。
      *
      * @see https://tools.ietf.org/html/rfc3986#section-3.1
      * @return string URI scheme 的值
@@ -1437,47 +1437,43 @@ interface UriInterface
      *
      * @see https://tools.ietf.org/html/rfc3986#section-2
      * @see https://tools.ietf.org/html/rfc3986#section-3.3
-     * @return string The URI path.
+     * @return string 从 URI 信息中的路径。
      */
     public function getPath();
 
     /**
-     * Retrieve the query string of the URI.
+     * 从 URI 信息中获取参数。
      *
-     * If no query string is present, this method MUST return an empty string.
+     * 如果不存在参数，此方法 **必须** 返回一个空字符串。
      *
-     * The leading "?" character is not part of the query and MUST NOT be
-     * added.
+     * 前面的 "?" 字符不是参数中的一部分 **一定不可** 添加到参数里。
      *
-     * The value returned MUST be percent-encoded, but MUST NOT double-encode
-     * any characters. To determine what characters to encode, please refer to
-     * RFC 3986, Sections 2 and 3.4.
+     * 返回值 **必须** 是百分比编码，但是 **一定不可** 双重编码。
+     * 确认需要编码的字符， 请参阅 RFC 3986 规范 2 和 3.5 章节。
      *
-     * As an example, if a value in a key/value pair of the query string should
-     * include an ampersand ("&") not intended as a delimiter between values,
-     * that value MUST be passed in encoded form (e.g., "%26") to the instance.
+     * 举例，如果参数中键/值对中的值中包含一个符号 ("&") 不做为值之间的分隔符，
+     * 该值 **必须** 使用编码形式传递 (e.g., "
+     * %26") 到实例。
      *
      * @see https://tools.ietf.org/html/rfc3986#section-2
      * @see https://tools.ietf.org/html/rfc3986#section-3.4
-     * @return string The URI query string.
+     * @return string 从 URI 信息中的参数。
      */
     public function getQuery();
 
     /**
-     * Retrieve the fragment component of the URI.
+     * 从 URI 信息中获取锚点。
      *
-     * If no fragment is present, this method MUST return an empty string.
+     * 如果不存在描点信息，此方法 **必须** 返回一个空字符串。
      *
-     * The leading "#" character is not part of the fragment and MUST NOT be
-     * added.
+     * 前面的 "#" 字符不是锚点中的一部分 **一定不可** 添加到锚点里。
      *
-     * The value returned MUST be percent-encoded, but MUST NOT double-encode
-     * any characters. To determine what characters to encode, please refer to
-     * RFC 3986, Sections 2 and 3.5.
+     * 返回值 **必须** 是百分比编码，但是 **一定不可** 双重编码。
+     * 确认需要编码的字符， 请参阅 RFC 3986 规范 2 和 3.5 章节。
      *
      * @see https://tools.ietf.org/html/rfc3986#section-2
      * @see https://tools.ietf.org/html/rfc3986#section-3.5
-     * @return string The URI fragment.
+     * @return string 从 URI 信息中获取锚点。
      */
     public function getFragment();
 
